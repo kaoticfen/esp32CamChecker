@@ -1,0 +1,7 @@
+node_modules
+public
+data
+tools/e2e-test.mjs
+tools/mock-camera.mjs
+*.log
+.DS_Store

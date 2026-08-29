@@ -1,0 +1,18 @@
+# Secrets and state
+.env
+data/
+certs/
+
+# Hub
+node_modules/
+hub/public/
+hub/data/
+
+# Firmware
+firmware/.pio/
+firmware/.vscode/
+
+# Tooling
+.venv/
+*.log
+.DS_Store
