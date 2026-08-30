@@ -13,6 +13,7 @@
     "start": "node src/server/main.ts",
     "test": "node tools/e2e-test.mjs",
     "mock-camera": "node tools/mock-camera.mjs",
+    "reset-password": "node tools/reset-password.mjs",
     "typecheck": "tsc -p tsconfig.json && tsc -p tsconfig.web.json"
   },
   "dependencies": {

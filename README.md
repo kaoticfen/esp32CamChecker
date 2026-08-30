@@ -203,6 +203,18 @@ docker compose down && docker compose up -d --build    # after a git pull
 > **Back up `data/`.** It holds your password hash and every camera's token.
 > Losing it means re-pairing every camera by hand.
 
+### Resetting the admin password
+
+`ADMIN_PASSWORD` in `.env` only seeds the *first* admin user — once one exists,
+changing it and restarting does nothing. To set a password directly:
+
+```bash
+docker compose exec hub node tools/reset-password.mjs admin
+```
+
+It prompts for the new password (hidden input) and signs out any existing
+session for that user. Any other username works the same way.
+
 ---
 
 # Remote access (optional)

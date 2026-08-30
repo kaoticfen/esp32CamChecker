@@ -21,6 +21,7 @@ RUN npm ci --omit=dev && npm cache clean --force
 COPY --from=build /app/public ./public
 COPY src/server ./src/server
 COPY tools/healthcheck.mjs ./tools/healthcheck.mjs
+COPY tools/reset-password.mjs ./tools/reset-password.mjs
 
 RUN mkdir -p /data && chown -R node:node /data /app
 USER node

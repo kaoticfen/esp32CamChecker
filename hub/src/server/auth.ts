@@ -105,6 +105,24 @@ export async function createUser(
   );
 }
 
+/** Returns false if the username does not exist, without creating one. */
+export async function setPassword(
+  db: DatabaseSync,
+  username: string,
+  password: string,
+): Promise<boolean> {
+  const hash = await hashPassword(password);
+  const result = db
+    .prepare('update users set password_hash = ? where username = ?')
+    .run(hash, username);
+  return result.changes > 0;
+}
+
+/** Invalidates every existing session for a user, e.g. after a password reset. */
+export function deleteSessionsForUser(db: DatabaseSync, userId: number): void {
+  db.prepare('delete from sessions where user_id = ?').run(userId);
+}
+
 /**
  * Bootstraps the first login. Without ADMIN_PASSWORD we generate one and print
  * it, so a fresh container is never reachable with a guessable default.
