@@ -1,5 +1,7 @@
 # Hardware notes
 
+This is helpful https://randomnerdtutorials.com/program-upload-code-esp32-cam/ 
+
 Everything here is specific to the **AI-Thinker ESP32-CAM** with the
 **ESP32-CAM-MB** programmer shield. Other ESP32 camera boards use different
 pins; `firmware/include/config.h` is where you would change them.
